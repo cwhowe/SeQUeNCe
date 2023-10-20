@@ -29,6 +29,12 @@
       "type": "QuantumRouter",
       "seed": 4,
       "memo_size": 50
+    },
+    {
+      "name": "router5",
+      "type": "QuantumRouter",
+      "seed": 4,
+      "memo_size": 50
     }
   ],
   "qconnections": [
@@ -36,7 +42,7 @@
       "node1": "center",
       "node2": "router1",
       "attenuation": 0.0002,
-      "distance": 500,
+      "distance": 2000,
       "type": "meet_in_the_middle"
     },
     {
@@ -50,14 +56,21 @@
       "node1": "center",
       "node2": "router3",
       "attenuation": 0.0002,
-      "distance": 500,
+      "distance": 50,
       "type": "meet_in_the_middle"
     },
     {
       "node1": "center",
       "node2": "router4",
       "attenuation": 0.0002,
-      "distance": 500,
+      "distance": 100,
+      "type": "meet_in_the_middle"
+    },
+    {
+      "node1": "center",
+      "node2": "router5",
+      "attenuation": 0.0002,
+      "distance": 700,
       "type": "meet_in_the_middle"
     }
   ],
@@ -112,6 +125,11 @@
     {
       "node1": "router3",
       "node2": "router4",
+      "delay": 1000000000
+    },
+    {
+      "node1": "center",
+      "node2": "router5",
       "delay": 1000000000
     }
   ]
