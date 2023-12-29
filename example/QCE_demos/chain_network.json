@@ -89,7 +89,7 @@
     }
   ],
   "is_parallel": false,
-  "stop_time": 2000000000000,
+  "stop_time": 20000000000000,
   "cconnections": [
     {
       "node1": "router1",
@@ -99,27 +99,27 @@
     {
       "node1": "router1",
       "node2": "router3",
-      "delay": 1000000000
+      "delay": 500000000
     },
     {
       "node1": "router1",
       "node2": "router4",
-      "delay": 1500000000
+      "delay": 500000000
     },
     {
       "node1": "router1",
       "node2": "router5",
-      "delay": 2000000000
+      "delay": 500000000
     },
     {
       "node1": "router1",
       "node2": "router6",
-      "delay": 2500000000
+      "delay": 500000000
     },
     {
       "node1": "router1",
       "node2": "router7",
-      "delay": 3000000000
+      "delay": 500000000
     },
     {
       "node1": "router2",
@@ -129,22 +129,22 @@
     {
       "node1": "router2",
       "node2": "router4",
-      "delay": 1000000000
+      "delay": 500000000
     },
     {
       "node1": "router2",
       "node2": "router5",
-      "delay": 1500000000
+      "delay": 500000000
     },
     {
       "node1": "router2",
       "node2": "router6",
-      "delay": 2000000000
+      "delay": 500000000
     },
     {
       "node1": "router2",
       "node2": "router7",
-      "delay": 2500000000
+      "delay": 500000000
     },
     {
       "node1": "router3",
@@ -154,17 +154,17 @@
     {
       "node1": "router3",
       "node2": "router5",
-      "delay": 1000000000
+      "delay": 500000000
     },
     {
       "node1": "router3",
       "node2": "router6",
-      "delay": 1500000000
+      "delay": 500000000
     },
     {
       "node1": "router3",
       "node2": "router7",
-      "delay": 2000000000
+      "delay": 500000000
     },
     {
       "node1": "router4",
@@ -174,12 +174,12 @@
     {
       "node1": "router4",
       "node2": "router6",
-      "delay": 1000000000
+      "delay": 500000000
     },
     {
       "node1": "router4",
       "node2": "router7",
-      "delay": 1500000000
+      "delay": 500000000
     },
     {
       "node1": "router5",
@@ -189,7 +189,7 @@
     {
       "node1": "router5",
       "node2": "router7",
-      "delay": 1000000000
+      "delay": 500000000
     },
     {
       "node1": "router6",
