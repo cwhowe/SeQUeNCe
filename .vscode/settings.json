@@ -1,3 +1,7 @@
 {
-    "cmake.sourceDirectory": "C:/Users/conno/OneDrive/Documents/GitHub/SeQUeNCe/parallel/cpp_server"
+    "cmake.sourceDirectory": "C:/Users/conno/OneDrive/Documents/GitHub/SeQUeNCe/parallel/cpp_server",
+    "jupyter.debugJustMyCode": false,
+    "python.analysis.extraPaths": [
+        "./build/lib"
+    ]
 }
