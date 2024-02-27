@@ -14,7 +14,7 @@ def run_script(iteration):
 if __name__ == "__main__":
     processes = []
 
-    for i in range(5):
+    for i in range(16):
         #print(f"Creating process for iteration {i}")
         p = multiprocessing.Process(target=run_script, args=(i,))
         p.start()
