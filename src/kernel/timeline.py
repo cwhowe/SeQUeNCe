@@ -121,7 +121,7 @@ class Timeline:
 
         while len(self.events) > 0:
             event = self.events.pop()
-
+            
             if event.time >= self.stop_time:
                 self.schedule(event)  # return to event list
                 break
@@ -135,9 +135,10 @@ class Timeline:
 
         self.is_running = False
         time_elapsed = time_ns() - tick
+        '''
         log.logger.info("Timeline end simulation. Execution Time: %d ns; Scheduled Event: %d; Executed Event: %d" %
                         (time_elapsed, self.schedule_counter, self.run_counter))
-
+        '''
     def stop(self) -> None:
         """Method to stop simulation."""
         log.logger.info("Timeline is stopped")

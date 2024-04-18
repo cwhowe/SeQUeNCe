@@ -142,6 +142,7 @@ class Node(Entity):
         """
         log.logger.info(
             "{} receive message {} from {}".format(self.name, msg, src))
+        print(msg)
         # signal to protocol that we've received a message
         if msg.receiver is not None:
             for protocol in self.protocols:
@@ -286,6 +287,7 @@ class QuantumRouter(Node):
 
     def receive_message(self, src: str, msg: "Message") -> None:
         log.logger.info("{} receive message {} from {}".format(self.name, msg, src))
+        print(msg)
         if msg.receiver == "resource_manager":
             self.resource_manager.received_message(src, msg)
         elif msg.receiver == "network_manager":

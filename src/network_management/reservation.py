@@ -117,6 +117,7 @@ def eg_rule_action2(memories_info: List["MemoryInfo"], args: Arguments):
     memory = memories[0]
     protocol = EntanglementGenerationA(None, "EGA." + memory.name, mid,
                                        path[index + 1], memory)
+    
     req_args = {"name": args["name"], "reservation": args["reservation"]}
     return protocol, [path[index + 1]], [eg_req_func], [req_args]
 

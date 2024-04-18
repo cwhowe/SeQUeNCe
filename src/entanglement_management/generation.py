@@ -131,6 +131,8 @@ class EntanglementGenerationA(EntanglementProtocol):
     _flip_circuit.x(0)
     _z_circuit = Circuit(1)
     _z_circuit.z(0)
+    _failsA = 0
+    _successesA = 0
 
     def __init__(self, own: "Node", name: str, middle: str, other: str, memory: "Memory"):
         """Constructor for entanglement generation A class.
@@ -192,8 +194,8 @@ class EntanglementGenerationA(EntanglementProtocol):
             Will send message through attached node.
         """
 
-        log.logger.info(f"{self.own.name} protocol start with partner "
-                        f"{self.remote_node_name}")
+        #log.logger.info(f"{self.own.name} protocol start with partner "
+        #   f"{self.remote_node_name}")
 
         # to avoid start after remove protocol
         if self not in self.own.protocols:
@@ -228,7 +230,8 @@ class EntanglementGenerationA(EntanglementProtocol):
             return
 
         self.ent_round += 1
-
+        log.logger.info("%s update_memory round %s", self.own.name, self.ent_round)
+        
         if self.ent_round == 1:
             return True
 
@@ -245,12 +248,14 @@ class EntanglementGenerationA(EntanglementProtocol):
             elif self.bsm_res[0] != self.bsm_res[1]:
                 self.own.timeline.quantum_manager.run_circuit(
                     EntanglementGenerationA._z_circuit, [self._qstate_key])
-
+            self._successesA += 1
             self._entanglement_succeed()
 
         else:
             # entanglement failed
+            log.logger.info(self.ent_round)
             self._entanglement_fail()
+            self._failsA += 1
             return False
 
         return True
@@ -294,7 +299,7 @@ class EntanglementGenerationA(EntanglementProtocol):
                          " {}, round={}".format(self.own.name,
                                                 msg.msg_type,
                                                 src, self.ent_round))
-
+    
         if msg_type is GenerationMsgType.NEGOTIATE:
             # configure params
             another_delay = msg.qc_delay
@@ -366,11 +371,11 @@ class EntanglementGenerationA(EntanglementProtocol):
             detector = msg.detector
             time = msg.time
             resolution = msg.resolution
-
+            
             log.logger.debug("{} received MEAS_RES {} at time {}, expected {},"
                              " resolution={}, round={}".format(
                 self.own.name, detector, time, self.expected_time, resolution, self.ent_round))
-
+            
             if valid_trigger_time(time, self.expected_time, resolution):
                 # record result if we don't already have one
                 i = self.ent_round - 1
@@ -407,9 +412,10 @@ class EntanglementGenerationA(EntanglementProtocol):
     def _entanglement_fail(self):
         for event in self.scheduled_events:
             self.own.timeline.remove_event(event)
-        log.logger.info(self.own.name + " failed entanglement of memory {}".format(self.memory))
+        log.logger.info(self.own.name + " failed entanglement of memory HHHH {}".format(self.memory))
         
         self.update_resource_manager(self.memory, 'RAW')
+        
 
 
 class EntanglementGenerationB(EntanglementProtocol):

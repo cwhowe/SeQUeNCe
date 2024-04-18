@@ -2,7 +2,7 @@ import multiprocessing
 import papermill as pm
 
 def run_script(iteration):
-    notebook_path = 'example/Multi_Node_Framework_WORKING.ipynb'
+    notebook_path = 'example/Multi_Node_Framework_CSV.ipynb'
     output_path = f'example/outputs/Multi_Node_Framework_WORKING_output_{iteration}.ipynb'
 
     pm.execute_notebook(
@@ -14,7 +14,7 @@ def run_script(iteration):
 if __name__ == "__main__":
     processes = []
 
-    for i in range(16):
+    for i in range(4):
         #print(f"Creating process for iteration {i}")
         p = multiprocessing.Process(target=run_script, args=(i,))
         p.start()
