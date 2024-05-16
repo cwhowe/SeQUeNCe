@@ -142,4 +142,4 @@ if __name__ == "__main__":
     log = {"Node": node_names, "Start_time": start_times,
            "End_time": end_times, "Memory_size": memory_sizes}
     df = pd.DataFrame(log)
-    df.to_csv("memory_usage_with_perfect_network.csv")
+    df.to_csv("/home/uom/howe0427/SeQUeNCe/example/generated_data/starlight_network_csv.csv")

@@ -171,7 +171,9 @@ class EntanglementSwappingA(EntanglementProtocol):
                 self.circuit, [self.left_memo.qstate_key,
                                self.right_memo.qstate_key], meas_samp)
             meas_res = [meas_res[self.left_memo.qstate_key], meas_res[self.right_memo.qstate_key]]
-
+            log.logger.info(f"{self.own.name} middle protocol start with ends "
+                        f"{self.left_protocol_name}, "
+                        f"{self.right_protocol_name}")
             msg_l = EntanglementSwappingMessage(SwappingMsgType.SWAP_RES,
                                                 self.left_protocol_name,
                                                 fidelity=fidelity,

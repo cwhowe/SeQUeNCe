@@ -142,7 +142,7 @@ class Node(Entity):
         """
         log.logger.info(
             "{} receive message {} from {}".format(self.name, msg, src))
-        print(msg)
+        #print(msg)
         # signal to protocol that we've received a message
         if msg.receiver is not None:
             for protocol in self.protocols:
@@ -230,7 +230,7 @@ class BSMNode(Node):
                     return
 
         # if we reach here, we didn't successfully receive the message in any protocol
-        print(src, msg)
+        #print(src, msg)
         raise Exception("Unknown protocol")
 
     def eg_add_others(self, other):
@@ -287,7 +287,7 @@ class QuantumRouter(Node):
 
     def receive_message(self, src: str, msg: "Message") -> None:
         log.logger.info("{} receive message {} from {}".format(self.name, msg, src))
-        print(msg)
+        #print(msg)
         if msg.receiver == "resource_manager":
             self.resource_manager.received_message(src, msg)
         elif msg.receiver == "network_manager":
@@ -618,7 +618,7 @@ class QKDNode(Node):
                 return
 
         # if we reach here, we didn't successfully receive the message in any protocol
-        print(self.protocols)
+        #print(self.protocols)
         raise Exception("Message received for unknown protocol '{}' on node {}".format(msg.protocol_type, self.name))
 
     def get(self, photon: "Photon", **kwargs):
