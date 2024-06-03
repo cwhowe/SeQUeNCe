@@ -6,7 +6,7 @@ if TYPE_CHECKING:
 import pandas as pd
 from sequence.app.random_request import RandomRequestApp
 from sequence.topology.router_net_topo import RouterNetTopo
-
+import sequence.utils.log as log
 
 def get_component(node: "Node", component_type: str):
     for comp in node.components.values():
@@ -24,6 +24,16 @@ if __name__ == "__main__":
     tl.show_progress = True
     routers = network_topo.get_nodes_by_type(RouterNetTopo.QUANTUM_ROUTER)
     bsm_nodes = network_topo.get_nodes_by_type(RouterNetTopo.BSM_NODE)
+
+    log_filename = "starlightlogs.log"
+    log.set_logger(__name__, tl, log_filename)
+    log.set_logger_level('INFO')
+    #log.track_module('timeline')
+    #log.track_module('network_manager')
+    log.track_module('generation')
+    log.track_module('swapping')
+    #log.track_module('node')
+    #log.track_module('resource_manager')
 
     # set memory parameters
     MEMO_FREQ = 2e3
@@ -66,7 +76,7 @@ if __name__ == "__main__":
     for i, node in enumerate(routers):
         app_node_name = node.name
         others = router_names[:]
-        others.remove(app_node_name)
+        others.remove(app_node_name) 
         app = RandomRequestApp(node, others, i,
                                min_dur=1e13, max_dur=2e13, min_size=10,
                                max_size=25, min_fidelity=0.8, max_fidelity=1.0)

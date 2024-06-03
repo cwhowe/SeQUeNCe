@@ -1,0 +1,135 @@
+{
+    "nodes": [
+        {
+            "name": "r0",
+            "type": "QuantumRouter",
+            "seed": 0,
+            "memo_size": 50,
+            "group": 0
+        },
+        {
+            "name": "r1",
+            "type": "QuantumRouter",
+            "seed": 1,
+            "memo_size": 50,
+            "group": 0
+        },
+        {
+            "name": "r2",
+            "type": "QuantumRouter",
+            "seed": 2,
+            "memo_size": 50,
+            "group": 0
+        },
+        {
+            "name": "m0",
+            "type": "BSMNode",
+            "seed": 0
+        },
+        {
+            "name": "m1",
+            "type": "BSMNode",
+            "seed": 1
+        }
+    ],
+    "qchannels": [
+        {
+            "source": "r0",
+            "destination": "m0",
+            "distance": 500.0,
+            "attenuation": 0.0002
+        },
+        {
+            "source": "r1",
+            "destination": "m0",
+            "distance": 500.0,
+            "attenuation": 0.0002
+        },
+        {
+            "source": "r1",
+            "destination": "m1",
+            "distance": 500.0,
+            "attenuation": 0.0002
+        },
+        {
+            "source": "r2",
+            "destination": "m1",
+            "distance": 500.0,
+            "attenuation": 0.0002
+        }
+    ],
+    "cchannels": [
+        {
+            "source": "m0",
+            "destination": "r0",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "r0",
+            "destination": "m0",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "m0",
+            "destination": "r1",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "r1",
+            "destination": "m0",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "m1",
+            "destination": "r1",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "r1",
+            "destination": "m1",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "m1",
+            "destination": "r2",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "r2",
+            "destination": "m1",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "r0",
+            "destination": "r1",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "r0",
+            "destination": "r2",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "r1",
+            "destination": "r0",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "r1",
+            "destination": "r2",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "r2",
+            "destination": "r0",
+            "delay": 10000000000.0
+        },
+        {
+            "source": "r2",
+            "destination": "r1",
+            "delay": 10000000000.0
+        }
+    ],
+    "stop_time": 10000000.0,
+    "is_parallel": false
+}
